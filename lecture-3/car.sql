@@ -8,7 +8,6 @@ CREATE TABLE model (
   name TEXT
 );
 
-
 CREATE TABLE car (
   id INTEGER PRIMARY KEY,
   number TEXT,
