@@ -1,0 +1,27 @@
+CREATE TABLE color (
+  id  INTEGER PRIMARY KEY,
+  name TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE model (
+  id INTEGER PRIMARY KEY,
+  name TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE driver (
+  id INTEGER PRIMARY KEY,
+  firstname VARCHAR (64),
+  middlename VARCHAR (64),
+  lastname VARCHAR (64) NOT NULL,
+  passport_data VARCHAR (24) UNIQUE NOT NULL,
+  license_data VARCHAR (17) UNIQUE NOT NULL,
+  dismissed BOOLEAN DEFAULT FALSE NOT NULL
+);
+
+CREATE TABLE car (
+  id INTEGER PRIMARY KEY,
+  number TEXT UNIQUE NOT NULL,
+  color_id INTEGER REFERENCES color (id) NOT NULL,
+  model_id INTEGER REFERENCES model (id) NOT NULL,
+  driver_id INTEGER UNIQUE
+);
